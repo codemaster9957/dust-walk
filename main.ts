@@ -394,7 +394,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile32`, function (sprite, 
         .......................ffffff.
         ..............................
         `],
-    10000,
+    500,
     false
     )
     scaling.scaleByPixels(host_, 5, ScaleDirection.Horizontally, ScaleAnchor.Middle)
