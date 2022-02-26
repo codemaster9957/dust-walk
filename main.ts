@@ -94,12 +94,7 @@ controller.up.onEvent(ControllerButtonEvent.Pressed, function () {
     )
 })
 controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
-    if (info.score() > 0) {
-        info.changeScoreBy(-1)
-    } else {
-        game.splash("not enough gold")
-    }
-    stausbar2.value += 5
+    tiles.loadMap(tiles.createMap(tilemap`level9`))
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile34`, function (sprite, location) {
     scene.cameraShake(5, 2000)
@@ -1015,6 +1010,7 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, l
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, mySprite4, 100, 0)
+    projectile2.setKind(SpriteKind.megaprojectile)
     tiles.placeOnTile(mySprite, tiles.getTileLocation(124, 54))
     statusbar = statusbars.create(20, 4, StatusBarKind.extrahealth)
     statusbar.setColor(9, 1)
@@ -1022,8 +1018,9 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, l
     info.startCountdown(30)
 })
 sprites.onOverlap(SpriteKind.megaprojectile, SpriteKind.Player, function (sprite, otherSprite) {
-    statusbar.value += -10
-    statusbar3.value += -10
+    statusbar.value += -50
+    statusbar3.value += -50
+    projectile2.destroy(effects.fire, 1000)
     statusbar.destroy(effects.disintegrate, 1000)
     mySprite4.sayText("we will meet again!", 5000, true)
     mySprite4.destroy()
@@ -1035,6 +1032,9 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.purpleSwitchUp, function 
 })
 scene.onOverlapTile(SpriteKind.Enemy, assets.tile`transparency16`, function (sprite, location) {
     mySprite3.destroy()
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`transparency16`, function (sprite, location) {
+	
 })
 scene.onHitWall(SpriteKind.fuel, function (sprite, location) {
     tiles.placeOnRandomTile(stausbar2, sprites.dungeon.darkGroundCenter)
