@@ -1015,18 +1015,6 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile2`, function (sprite, l
         . . . . . . . . . . . . . . . . 
         . . . . . . . . . . . . . . . . 
         `, mySprite4, 100, 0)
-    if (game.askForString("what was the name of the boss you just encountered (no spaces or capitals)", 12) == "ghostsquid") {
-        game.splash("correct you may continue")
-    } else {
-        game.over(false, effects.melt)
-    }
-    projectile2.setKind(SpriteKind.megaprojectile)
-    if (Math.percentChance(1)) {
-        mySprite.sayText("Uno reverse card! ")
-        projectile2.setKind(SpriteKind.megaprojectile)
-        projectile2.setVelocity(-100, 0)
-        mySprite.sayText("" + mySprite8)
-    }
     tiles.placeOnTile(mySprite, tiles.getTileLocation(124, 54))
     statusbar = statusbars.create(20, 4, StatusBarKind.extrahealth)
     statusbar.setColor(9, 1)
@@ -1062,6 +1050,9 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.fuel, function (sprite, otherSpr
 sprites.onOverlap(SpriteKind.Projectile, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.destroy()
     info.changeScoreBy(1)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile35`, function (sprite, location) {
+    tiles.loadMap(tiles.createMap(tilemap`level8`))
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`myTile14`, function (sprite, location) {
     game.splash(game.ask("do you want some healing?"), "")
@@ -1099,7 +1090,6 @@ let statusbar: StatusBarSprite = null
 let projectile: Sprite = null
 let projectile3: Sprite = null
 let host_: Sprite = null
-let mySprite8 = ""
 let mySprite: Sprite = null
 let stausbar2: StatusBarSprite = null
 let statusbar3: StatusBarSprite = null
@@ -1124,7 +1114,7 @@ mySprite = sprites.create(img`
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
 info.setLife(5)
-mySprite8 = game.askForString("", 12)
+let mySprite8 = game.askForString("", 12)
 mySprite.sayText("" + mySprite8)
 game.showLongText("" + mySprite8 + " you have been chosen defeat the monsters fight the champions and obliterate the bosses I must go now but we will meet again!" + "", DialogLayout.Bottom)
 stausbar2.attachToSprite(mySprite, 0, -2)
