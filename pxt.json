@@ -1,29 +1,22 @@
 {
-    "name": "dust walk",
-    "description": "",
+    "name": "dust-walk",
     "dependencies": {
-        "device": "*",
-        "sprite-scaling": "*",
-        "tilemaps": "github:microsoft/pxt-tilemaps#v1.12.0",
-        "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.1",
-        "radio-broadcast": "*",
-        "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.1.0",
-        "pxt-button-combos": "github:jwunderl/pxt-button-combos#v0.0.24"
+        "device": "*"
     },
     "files": [
-        "main.blocks",
-        "main.ts",
+        ".vscode/settings.json",
+        ".vscode/tasks.json",
         "README.md",
         "assets.json",
+        "main.blocks",
+        "main.ts",
+        "test.ts",
         "tilemap.g.jres",
         "tilemap.g.ts",
-        null
-    ],
-    "testFiles": [
-        "test.ts"
+        "tsconfig.json"
     ],
     "targetVersions": {
-        "target": "1.8.20",
+        "target": "1.12.18",
         "targetId": "arcade"
     },
     "supportedTargets": [
