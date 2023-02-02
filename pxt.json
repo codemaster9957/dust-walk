@@ -1,5 +1,5 @@
 {
-    "name": "favourite",
+    "name": "dust walk",
     "description": "",
     "dependencies": {
         "device": "*",
@@ -7,7 +7,8 @@
         "tilemaps": "github:microsoft/pxt-tilemaps#v1.12.0",
         "pxt-status-bar": "github:jwunderl/pxt-status-bar#v0.4.1",
         "radio-broadcast": "*",
-        "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.1.0"
+        "arcade-sprite-data": "github:microsoft/arcade-sprite-data#v0.1.0",
+        "pxt-button-combos": "github:jwunderl/pxt-button-combos#v0.0.24"
     },
     "files": [
         "main.blocks",
@@ -21,7 +22,7 @@
         "test.ts"
     ],
     "targetVersions": {
-        "target": "1.8.17",
+        "target": "1.8.20",
         "targetId": "arcade"
     },
     "supportedTargets": [
